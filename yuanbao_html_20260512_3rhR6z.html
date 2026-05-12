@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Quiet Badge | Sovereign Lineage Accessories</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS Variables (Theme) --- */
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-light: #1a1a1a;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-gold: #c9a227;
+            --accent-silver: #c0c0c0;
+            --whatsapp-green: #25D366;
+        }
+
+        /* --- Global Reset & Base Styles --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4 { font-family: 'Cinzel', serif; letter-spacing: 2px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .btn {
+            padding: 15px 40px;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: transparent;
+            cursor: pointer;
+            display: inline-block;
+        }
+        .btn:hover { background: var(--accent-gold); color: var(--bg-dark); }
+        .section-title { text-align: center; margin-bottom: 60px; font-size: 2.5rem; }
+        .section-title span { color: var(--accent-gold); }
+
+        /* --- Header & Navigation --- */
+        header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: rgba(10,10,10,0.8); backdrop-filter: blur(10px); border-bottom: 1px solid #222; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Cinzel', serif; font-size: 1.5rem; color: white; text-decoration: none; letter-spacing: 3px; }
+        .nav-links { list-style: none; display: flex; gap: 40px; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; letter-spacing: 1px; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--accent-gold); }
+
+        /* --- Hero Section --- */
+        .hero { height: 100vh; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('https://github.com/monicazhu995-lab/quiet-badge-assets/blob/main/homepage-hero.jpg?raw=true'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; }
+        .hero h1 { font-size: 4.5rem; color: #fff; margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1.5rem; color: var(--accent-gold); margin-bottom: 40px; font-weight: 300; }
+        
+        /* --- Collections Grid (Our Worlds) --- */
+        .collections-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .collection-card { position: relative; height: 500px; overflow: hidden; background-color: var(--bg-light); }
+        .collection-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .collection-card:hover img { transform: scale(1.05); }
+        .card-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); }
+        .card-overlay h3 { margin: 0; font-size: 1.8rem; color: white; }
+        .card-overlay p { margin: 5px 0 0; color: var(--text-secondary); }
+
+        /* --- Products Grid (Featured Pieces) --- */
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .product-card { background: var(--bg-light); padding: 20px; text-align: center; border: 1px solid #333; transition: border-color 0.3s ease; }
+        .product-card:hover { border-color: var(--accent-silver); }
+        .product-card img { width: 100%; height: 300px; object-fit: contain; margin-bottom: 20px; }
+        .product-card h4 { margin: 0; font-size: 1.2rem; font-family: 'Raleway', sans-serif; font-weight: 600; }
+        .product-card .price { color: var(--accent-gold); font-size: 1.1rem; margin-top: 10px; }
+
+        /* --- Contact Section (Real & Effective) --- */
+        #contact { padding: 100px 20px; background-color: var(--bg-dark); text-align: center; }
+        #contact .container { max-width: 600px; margin: 0 auto; }
+        #contact h2 { font-family: 'Cinzel', serif; font-size: 2.5rem; color: var(--text-primary); margin-bottom: 20px; }
+        #contact p.subtitle { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 60px; line-height: 1.6; }
+        #contact form { display: flex; flex-direction: column; gap: 25px; }
+        #contact input, #contact textarea { background: transparent; border: none; border-bottom: 1px solid #444; padding: 15px 10px; font-size: 1rem; color: var(--text-primary); outline: none; transition: border-color 0.3s; }
+        #contact input::placeholder, #contact textarea::placeholder { color: #666; }
+        #contact textarea { border: 1px solid #444; min-height: 120px; resize: vertical; }
+        #contact button { background-color: transparent; color: var(--accent-gold); border: 2px solid var(--accent-gold); padding: 15px 40px; font-size: 1.1rem; font-weight: bold; cursor: pointer; margin-top: 20px; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px; }
+        #contact button:hover { background-color: var(--accent-gold); color: var(--bg-dark); }
+        #contact .direct-contact { margin-top: 50px; padding-top: 30px; border-top: 1px solid #333; font-size: 0.9rem; color: var(--text-secondary); }
+        #contact .direct-contact a { color: var(--accent-silver); text-decoration: none; display: block; margin-top: 5px; }
+        #contact .direct-contact .gold { color: var(--accent-gold); }
+
+        /* --- Footer --- */
+        footer { background: var(--bg-dark); padding: 40px 0; text-align: center; border-top: 1px solid #333; }
+        footer p { color: var(--text-secondary); font-size: 0.9rem; }
+        footer a { color: var(--accent-silver); text-decoration: none; }
+
+        /* --- ✅ Enhanced WhatsApp Floating Button --- */
+        .whatsapp-btn {
+            position: fixed; bottom: 30px; right: 30px; z-index: 999;
+            background-color: var(--whatsapp-green); color: white;
+            border-radius: 30px; /* Pill shape */
+            padding: 12px 18px;
+            display: flex; align-items: center; justify-content: center;
+            gap: 10px; /* Space between icon and text */
+            box-shadow: 0 6px 16px rgba(0,0,0,0.35); 
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .whatsapp-btn:hover { transform: scale(1.08); background-color: #1ebe57; }
+        .whatsapp-btn svg { width: 28px; height: 28px; fill: white; }
+        .whatsapp-text { font-family: 'Raleway', sans-serif; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.5px; }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            .whatsapp-btn { padding: 14px 16px; } /* Larger touch area on mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">THE QUIET BADGE</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#collections">Collections</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Inquiry</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div>
+            <h1>THE QUIET BADGE</h1>
+            <p>Uniform Accessories for the Unseen Class</p>
+            <a href="#collections" class="btn">Discover The Collections</a>
+        </div>
+    </section>
+
+    <main>
+        <!-- Collections Section (Our Worlds) -->
+        <section id="collections" style="padding: 100px 0;">
+            <div class="container">
+                <h2 class="section-title">Our <span>Worlds</span></h2>
+                <div class="collections-grid">
+                    <div class="collection-card">
+                        <img src="https://github.com/monicazhu995-lab/quiet-badge-assets/blob/main/ivy-league-accessories.jpg?raw=true" alt="The Establishment">
+                        <div class="card-overlay">
+                            <h3>The Establishment</h3>
+                            <p>Regimental stripes & Ivy League heritage.</p>
+                        </div>
+                    </div>
+                    <div class="collection-card">
+                        <img src="https://github.com/monicazhu995-lab/quiet-badge-assets/blob/main/middle-eastern-royalty.jpg?raw=true" alt="The Patrician">
+                        <div class="card-overlay">
+                            <h3>The Patrician</h3>
+                            <p>Symbols of lineage and desert grace.</p>
+                        </div>
+                    </div>
+                    <div class="collection-card">
+                        <img src="https://github.com/monicazhu995-lab/quiet-badge-assets/blob/main/the-modern-heir-bowtie.jpg?raw=true" alt="The Modern Heir">
+                        <div class="card-overlay">
+                            <h3>The Modern Heir</h3>
+                            <p>Minimalist vessels for contemporary life.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products Section (Single Pieces) -->
+        <section id="products" style="padding: 100px 0; background-color: var(--bg-dark);">
+            <div class="container">
+                <h2 class="section-title">Featured <span>Pieces</span></h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img src="https://github.com/monicazhu995-lab/quiet-badge-assets/blob/main/signet-ring-gold-matte.jpg?raw=true" alt="Signet Ring">
+                        <h4>Signet Ring</h4>
+                        <p class="price">From $1,200</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://github.com/monicazhu995-lab/quiet-badge-assets/blob/main/enamel-cufflinks-blue-gold.jpg?raw=true" alt="Enamel Cufflinks">
+                        <h4>Enamel Cufflinks</h4>
+                        <p class="price">From $450</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://github.com/monicazhu995-lab/quiet-badge-assets/blob/main/silk-necktie-navy-crest.jpg?raw=true" alt="Silk Necktie">
+                        <h4>Silk Necktie</h4>
+                        <p class="price">From $220</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://github.com/monicazhu995-lab/quiet-badge-assets/blob/main/amber-misbaha-honey-gold.jpg?raw=true" alt="Amber Misbaha">
+                        <h4>Amber Misbaha</h4>
+                        <p class="price">From $850</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <h2>Initiate Your Bespoke Order</h2>
+                <p class="subtitle">
+                    To ensure exclusivity and reserve your piece, please provide your details below. 
+                    <span style="color: var(--accent-gold);">Early reservation secures priority production.</span>
+                
+
+                <!-- ✅ REAL FORM - Using your Formspree link -->
+                <form action="https://formspree.io/f/mdabwwyb" method="POST">
+                    <input type="text" name="full_name" placeholder="Full Name *" required>
+                    <input type="text" name="company_name" placeholder="Company Name / Affiliation">
+                    <input type="email" name="email" placeholder="Email Address *" required>
+                    <input type="tel" name="whatsapp" placeholder="WhatsApp Number *" required>
+                    <input type="number" name="quantity" placeholder="Quantity / Volume" min="1" value="1">
+                    <textarea name="demand" placeholder="Describe Your Vision (e.g., Family Crest Details, Custom Engraving, Preferred Delivery Date) *" required></textarea>
+                    <button type="submit">Request Private Consultation</button>
+                </form>
+
+                <div class="direct-contact">
+                    <p>Or connect directly via:</p>
+                    <a href="mailto:Founder@sovereignbiolab.com">Founder@sovereignbiolab.com</a>
+                    <p style="margin-top: 15px;">WhatsApp / WeChat / Cell:</p>
+                    <a href="https://wa.me/8618123620673" class="gold">+86 181 2362 0673</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 The Quiet Badge. All Rights Reserved.</p>
+            <p style="margin-top: 10px;"><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- ✅ Enhanced WhatsApp Floating Button -->
+    <a href="https://wa.me/8618123620673" target="_blank" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor">
+            <path d="M16 2a14 14 0 0 0-11.57 21.89l-1.69 5.53a1 1 0 0 0 1.31 1.31l5.53-1.69A14 14 0 1 0 16 2zm0 26a12 12 0 1 1 12-12 12 12 0 0 1-12 12zm5.89-9.45c-.33-.17-1.95-.96-2.25-1.07-.3-.1-.52-.17-.74.17-.22.33-.85 1.07-.1 1.3.75.23 1.38.53 1.88.73.63.2.76.17.93-.17.17-.33.2-.62.13-.83zm-3.66-1.38c-.2-.33-.43-.6-.67-.6-.23 0-.43.17-.67.33-.23.17-.87.6-.87 1.47s.9 1.7 1.03 1.83c.13.13 1.8 2.73 2.77 3.83.97 1.1 1.67.93 1.67.93s.93-.33.93-1.03c0-.7-.33-1.37-.5-1.9-.17-.53.13-.87.43-1.13.3-.27 1.13-1.03 1.33-1.37.2-.33.2-.6-.1-.87z"/>
+        </svg>
+        <span class="whatsapp-text">Chat Now</span>
+    </a>
+
+</body>
+</html>
