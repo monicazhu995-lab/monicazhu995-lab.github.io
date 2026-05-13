@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Quiet Badge | Sovereign Legacy Symbols</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #050505;
+            --bg-light: #121212;
+            --text-primary: #f5f5f5;
+            --text-secondary: #b8b8b8;
+            --accent-gold: #d4b15e;
+            --accent-gold-dark: #b89448;
+            --accent-silver: #c8c8c8;
+            --whatsapp-green: #25D366;
+            --border-light: rgba(255,255,255,0.08);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.65;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        h1, h2, h3, h4, .logo { 
+            font-family: 'Playfair Display', serif; 
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .btn {
+            padding: 16px 44px;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.4s ease;
+            background: transparent;
+            cursor: pointer;
+            display: inline-block;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+        .btn:hover {
+            background: var(--accent-gold);
+            color: #000;
+            box-shadow: 0 6px 20px rgba(212,177,94,0.2);
+            border-color: var(--accent-gold-dark);
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 12px;
+        }
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 1px;
+            background: var(--accent-gold);
+        }
+        .section-title span { 
+            color: var(--accent-gold);
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        header {
+            position: fixed; top:0; left:0; right:0;
+            z-index: 999;
+            padding: 22px 0;
+            background: rgba(0,0,0,0.88);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-light);
+        }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo {
+            font-size: 1.4rem;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 42px;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.2px;
+        }
+        .nav-links a:hover { 
+            color: var(--accent-gold);
+            opacity: 0.9;
+        }
+
+        .hero {
+            height: 100vh;
+            background-image: linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.9)), url('https://p26-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/691960cb509b48b58dcb1e8831794c21.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--accent-gold);
+            margin-bottom: 44px;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+
+        .brand-story {
+            padding: 100px 0;
+            text-align: center;
+            background: #0a0a0a;
+        }
+        .brand-story p {
+            max-width: 800px;
+            margin: 0 auto 24px;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.2px;
+            line-height: 1.8;
+        }
+
+        .scenarios { padding: 100px 0; background: var(--bg-dark); }
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .scenario-card {
+            position: relative;
+            height: 460px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+        }
+        .scenario-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .scenario-card:hover img { transform: scale(1.03); }
+        .scenario-overlay {
+            position: absolute;
+            bottom: 0; left:0; right:0;
+            padding: 36px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.92));
+        }
+        .scenario-overlay h3 { 
+            font-size: 1.5rem; 
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .scenario-overlay p { 
+            color: var(--text-secondary); 
+            font-size: 0.95rem;
+            letter-spacing: 0.2px;
+        }
+
+        .products { padding: 100px 0; background: #0a0a0a; }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 24px;
+        }
+        .product-card {
+            background: var(--bg-light);
+            padding: 28px 20px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+            transition: all 0.4s ease;
+        }
+        .product-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .product-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            opacity: 0.95;
+            transition: opacity 0.3s ease;
+        }
+        .product-card:hover img { opacity: 1; }
+        .product-card h4 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .testimonials { padding: 100px 0; background: var(--bg-dark); }
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 30px;
+        }
+        .testi-card {
+            padding: 40px;
+            background: #111;
+            border-left: 1px solid var(--accent-gold);
+        }
+        .testi-card p {
+            font-style: italic;
+            font-size: 1rem;
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+            letter-spacing: 0.2px;
+            line-height: 1.8;
+        }
+        .testi-author {
+            color: var(--accent-gold);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        .appointment {
+            padding: 100px 20px;
+            background: #0a0a0a;
+            text-align: center;
+        }
+        .appointment .container { max-width: 620px; margin: 0 auto; }
+        .appointment h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .appointment .sub {
+            color: var(--text-secondary);
+            margin-bottom: 44px;
+            font-size: 1rem;
+            letter-spacing: 0.2px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+        form input, form select, form textarea {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #222;
+            padding: 16px 10px;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            outline: none;
+            transition: border-color 0.3s;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.2px;
+        }
+        form select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23b8b8b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+        }
+        form input:focus, form select:focus, form textarea:focus {
+            border-color: var(--accent-gold);
+        }
+        form textarea {
+            border: 1px solid #222;
+            min-height: 140px;
+            resize: vertical;
+            line-height: 1.6;
+        }
+        form button {
+            padding: 16px 40px;
+            background: transparent;
+            color: var(--accent-gold);
+            border: 1px solid var(--accent-gold);
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin-top: 10px;
+            letter-spacing: 0.3px;
+        }
+        form button:hover {
+            background: var(--accent-gold);
+            color: #000;
+            border-color: var(--accent-gold-dark);
+        }
+        .direct-contact {
+            margin-top: 44px;
+            padding-top: 28px;
+            border-top: 1px solid #1a1a1a;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            letter-spacing: 0.2px;
+        }
+        .direct-contact a {
+            color: var(--accent-silver);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .direct-contact a:hover { color: var(--accent-gold); }
+
+        footer {
+            padding: 44px 0;
+            text-align: center;
+            background: var(--bg-dark);
+            border-top: 1px solid var(--border-light);
+        }
+        footer p { 
+            color: #666; 
+            font-size: 0.85rem;
+            letter-spacing: 0.2px;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 998;
+            background: var(--whatsapp-green);
+            color: #fff;
+            border-radius: 50px;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            letter-spacing: 0.2px;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+            background: #1ebe57;
+        }
+        .whatsapp-float svg { width: 24px; height: 24px; fill: #fff; }
+
+        @media (max-width:768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .scenario-grid, .product-grid, .testi-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="container">
+        <a href="#" class="logo">THE QUIET BADGE</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#legacy">Legacy</a></li>
+            <li><a href="#scenarios">Scenarios</a></li>
+            <li><a href="#symbols">Symbols</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#appointment">Inquiry</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div>
+        <h1>THE QUIET BADGE</h1>
+        <p>Sovereign Symbols For The Global Elite</p>
+        <a href="#appointment" class="btn">Private Appointment</a>
+    </div>
+</section>
+
+<section class="brand-story" id="legacy">
+    <div class="container">
+        <h2 class="section-title">Our <span>Legacy</span></h2>
+        <p>The Quiet Badge is not luxury. It is the language of lineage, authority, and unspoken power — crafted exclusively for royal families, family offices, and legacy heirs.</p>
+        <p>We create timeless symbols that speak only to those who understand. No noise, no logos, no pretense. Just quiet sovereignty.</p>
+        <p>Every piece is a legacy worn in silence.</p>
+    </div>
+</section>
+
+<section class="scenarios" id="scenarios">
+    <div class="container">
+        <h2 class="section-title">Three <span>Worlds</span></h2>
+        <div class="scenario-grid">
+            <div class="scenario-card">
+                <img src="https://raw.githubusercontent.com/monicazhu995-lab/quiet-badge-assets/main/ivy-league-accessories.jpg" alt="Royal & Diplomatic">
+                <div class="scenario-overlay">
+                    <h3>Royal & Diplomatic</h3>
+                    <p>For sovereign lineage and state occasions</p>
+                </div>
+            </div>
+            <div class="scenario-card">
+                <img src="https://raw.githubusercontent.com/monicazhu995-lab/quiet-badge-assets/main/middle-eastern-royalty.jpg" alt="Family Office">
+                <div class="scenario-overlay">
+                    <h3>Family Office</h3>
+                    <p>For authority, legacy, and private power</p>
+                </div>
+            </div>
+            <div class="scenario-card">
+                <img src="https://raw.githubusercontent.com/monicazhu995-lab/quiet-badge-assets/main/the-modern-heir-bowtie.jpg" alt="Private Heirloom">
+                <div class="scenario-overlay">
+                    <h3>Private Heirloom</h3>
+                    <p>For legacy holders and future generations</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="products" id="symbols">
+    <div class="container">
+        <h2 class="section-title">Timeless <span>Symbols</span></h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://raw.githubusercontent.com/monicazhu995-lab/quiet-badge-assets/main/signet-ring-gold-matte.jpg" alt="Sovereign Signet">
+                <h4>Sovereign Signet</h4>
+            </div>
+            <div class="product-card">
+                <img src="https://raw.githubusercontent.com/monicazhu995-lab/quiet-badge-assets/main/enamel-cufflinks-blue-gold.jpg" alt="Regal Enamel Cufflinks">
+                <h4>Regal Enamel Cufflinks</h4>
+            </div>
+            <div class="product-card">
+                <img src="https://raw.githubusercontent.com/monicazhu995-lab/quiet-badge-assets/main/silk-necktie-navy-crest.jpg" alt="Legacy Silk Tie">
+                <h4>Legacy Silk Tie</h4>
+            </div>
+            <div class="product-card">
+                <img src="https://raw.githubusercontent.com/monicazhu995-lab/quiet-badge-assets/main/amber-misbaha-honey-gold.jpg" alt="Noble Misbaha">
+                <h4>Noble Misbaha</h4>
+            </div>
+            <div class="product-card">
+                <img src="https://raw.githubusercontent.com/monicazhu995-lab/quiet-badge-assets/main/lapel-pin-gold-crest.jpg" alt="Heritage Lapel Pin">
+                <h4>Heritage Lapel Pin</h4>
+            </div>
+            <div class="product-card">
+                <img src="https://raw.githubusercontent.com/monicazhu995-lab/quiet-badge-assets/main/custom-bowtie-black-gold.jpg" alt="Elite Bow Tie">
+                <h4>Elite Bow Tie</h4>
+            </div>
+            <div class="product-card">
+                <img src="https://raw.githubusercontent.com/monicazhu995-lab/quiet-badge-assets/main/royal-belt-gold-buckle.jpg" alt="Sovereign Belt">
+                <h4>Sovereign Belt</h4>
+            </div>
+            <div class="product-card">
+                <img src="https://raw.githubusercontent.com/monicazhu995-lab/quiet-badge-assets/main/pocket-square-gold-crest.jpg" alt="Legacy Pocket Square">
+                <h4>Legacy Pocket Square</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials" id="testimonials">
+    <div class="container">
+        <h2 class="section-title">Client <span>Testimonials</span></h2>
+        <div class="testi-grid">
+            <div class="testi-card">
+                <p>"Finally, a brand that understands the dignity of royal lineage. Discreet, powerful, perfect."</p>
+                <div class="testi-author">Gulf Royal Family Member</div>
+            </div>
+            <div class="testi-card">
+                <p>"These symbols carry authority without speaking. Essential for boardroom and diplomatic life."</p>
+                <div class="testi-author">Global Family Office CEO</div>
+            </div>
+            <div class="testi-card">
+                <p>"Craftsmanship beyond compare. This is legacy you can wear, trust, and pass down."</p>
+                <div class="testi-author">European Noble Family</div>
+            </div>
+            <div class="testi-card">
+                <p>"Understated, exclusive, and built for those who understand true power. Worth every moment of waiting."</p>
+                <div class="testi-author">International Legacy Heir</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="appointment" id="appointment">
+    <div class="container">
+        <h2>Private Appointment</h2>
+        <p class="sub">Reserve your bespoke legacy. Early consultation secures priority crafting.</p>
+        
+        <!-- 你的表单 + 邮箱 100% 已植入 -->
+        <form action="https://formspree.io/f/mdabwwyb" method="POST">
+            <input type="hidden" name="_replyto" value="Founder@sovereignbiolab.com">
+            <input type="text" name="full_name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Business Email" required>
+            <input type="text" name="affiliation" placeholder="Family Office / Institution">
+            <input type="tel" name="whatsapp" placeholder="WhatsApp (e.g. +971501234567)" required>
+            <select name="purpose" required>
+                <option value="" disabled selected>Intended Use</option>
+                <option value="royal">Royal / Diplomatic</option>
+                <option value="heirloom">Family Heirloom</option>
+                <option value="boardroom">Boardroom / Formal</option>
+                <option value="private">Private Collection</option>
+                <option value="gift">Luxury Gifting</option>
+                <option value="wholesale">Bulk Order</option>
+            </select>
+            <textarea name="requirements" placeholder="Your Requirements & Vision" required></textarea>
+            <button type="submit">Submit Private Request</button>
+        </form>
+
+        <div class="direct-contact">
+            <p>Direct Contact</p>
+            <a href="mailto:Founder@sovereignbiolab.com">Founder@sovereignbiolab.com</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 The Quiet Badge. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- 你的 WHATSAPP 100% 已植入 -->
+<a href="https://wa.me/8618123620673" target="_blank" class="whatsapp-float">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+        <path d="M16 2a14 14 0 0 0-11.57 21.89l-1.69 5.53a1 1 0 0 0 1.31 1.31l5.53-1.69A14 14 0 1 0 16 2zm0 26a12 12 0 1 1 12-12 12 12 0 0 1-12 12z"/>
+    </svg>
+    <span>Chat Now</span>
+</a>
+
+</body>
+</html>
